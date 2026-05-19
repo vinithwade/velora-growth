@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --color-cream: #f8f7f4;
+  --color-ink: #1c1917;
+  --color-muted: #57534e;
+  --color-saffron: #c2410c;
+  --color-saffron-dark: #9a3412;
+  --color-teal: #0f4c5c;
+  --color-teal-light: #1a6b7d;
+  --color-surface: #ffffff;
+  --color-border: #e7e5e4;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream font-sans text-base leading-relaxed text-ink antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+  }
+
+  p {
+    @apply leading-relaxed;
+  }
+}
+
+@layer utilities {
+  .logo-wordmark {
+    font-family: var(--font-display);
+    letter-spacing: -0.04em;
+  }
+
+  .font-stat {
+    font-family: var(--font-sans);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.03em;
+  }
+
+  .card {
+    @apply rounded-2xl border border-border bg-surface shadow-sm;
+  }
+
+  .card-elevated {
+    @apply rounded-3xl border border-border bg-surface shadow-lg shadow-stone-900/5;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 35s linear infinite;
+}
