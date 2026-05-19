@@ -1,7 +1,7 @@
 export const agency = {
   name: "Velora Growth",
   tagline: "Performance marketing, accountably.",
-  location: "Mumbai & Bengaluru",
+  location: "Mumbai, Bengaluru & Hyderabad",
   legalName: "Velora Growth Media Pvt. Ltd.",
   foundedYear: 2019,
   clientsServed: "60+",
