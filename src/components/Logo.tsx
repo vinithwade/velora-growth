@@ -24,7 +24,7 @@ export function Logo({
         className,
       )}
     >
-      <span className="font-semibold text-teal">{brand}</span>
+      <span className="font-semibold text-accent">{brand}</span>
       {suffix ? (
         <span className="font-medium text-ink">{suffix}</span>
       ) : null}

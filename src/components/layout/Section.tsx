@@ -2,10 +2,11 @@ import type { ReactNode } from "react";
 import { cn } from "../../lib/cn";
 
 const variants = {
-  default: "bg-cream",
-  surface: "border-y border-border bg-surface",
-  muted: "bg-stone-100/60",
-  dark: "bg-ink text-cream",
+  default: "bg-base",
+  elevated: "border-y border-stone-200/60 bg-elevated",
+  muted: "bg-stone-100/50",
+  glow: "gradient-guarantee",
+  dark: "bg-stone-100 text-ink",
 } as const;
 
 export function Section({

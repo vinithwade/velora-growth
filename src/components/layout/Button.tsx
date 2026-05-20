@@ -3,12 +3,12 @@ import { cn } from "../../lib/cn";
 
 const variants = {
   primary:
-    "bg-teal text-white shadow-md shadow-teal/15 hover:bg-teal-light",
+    "bg-accent font-semibold text-white shadow-lg shadow-accent/20 hover:bg-accent-dark",
   secondary:
-    "border border-border bg-surface text-ink hover:border-stone-400 hover:bg-white",
+    "border border-stone-300 bg-surface text-ink hover:border-stone-400 hover:bg-stone-50",
   accent:
-    "bg-saffron text-white shadow-md shadow-saffron/20 hover:bg-saffron-dark",
-  ghost: "text-ink hover:bg-stone-200/60",
+    "bg-accent text-white shadow-lg shadow-accent/20 hover:bg-accent-dark",
+  ghost: "text-muted hover:bg-stone-100 hover:text-ink",
 } as const;
 
 export function Button({

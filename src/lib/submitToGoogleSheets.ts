@@ -13,10 +13,12 @@ function buildSubmitUrl(baseUrl: string, data: QualifyFormData): string {
   const params = new URLSearchParams({
     name: data.name,
     email: data.email,
-    company: data.company,
-    website: data.website || "",
-    industry: data.industry,
-    revenue: data.revenue,
+    brand: data.brand,
+    storeUrl: data.storeUrl || "",
+    platform: data.platform,
+    category: data.category,
+    monthlyRevenue: data.monthlyRevenue,
+    googleAdsStatus: data.googleAdsStatus,
     helpWith: data.helpWith.join("||"),
     adSpend: data.adSpend,
     timeline: data.timeline,
@@ -37,7 +39,7 @@ export async function submitToGoogleSheets(
   const response = await fetch(url, { method: "GET" });
   const text = await response.text();
 
-  let result: { success?: boolean; error?: string; ok?: boolean; hint?: string };
+  let result: { success?: boolean; error?: string; ok?: boolean };
   try {
     result = JSON.parse(text) as typeof result;
   } catch {
@@ -48,9 +50,9 @@ export async function submitToGoogleSheets(
 
   if (result.success === true) return;
 
-  if (result.ok && !result.success) {
+  if (result.ok === true && !result.success) {
     throw new Error(
-      "Apps Script is outdated. In Google Sheets → Extensions → Apps Script: delete all code, paste the latest Code.gs from your project folder, Save, then Deploy → Manage deployments → Edit → New version → Deploy.",
+      "Apps Script is outdated. Paste the latest Code.gs into Google Apps Script, then Deploy → New version.",
     );
   }
 

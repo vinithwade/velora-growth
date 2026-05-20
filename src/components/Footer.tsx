@@ -3,16 +3,16 @@ import { Container } from "./layout/Container";
 import { Logo } from "./Logo";
 
 const links = [
-  { label: "Apply", href: "#qualify" },
-  { label: "Case studies", href: "#case-studies" },
-  { label: "FAQs", href: "#faq" },
-  { label: "Insights", href: "#news" },
+  { label: "Free audit", href: "#audit" },
+  { label: "Services", href: "#services" },
+  { label: "90-day system", href: "#process" },
+  { label: "Guarantee", href: "#guarantee" },
   { label: "Contact", href: `mailto:${agency.email}` },
 ];
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-surface">
+    <footer className="border-t border-stone-200/80 bg-elevated">
       <Container size="xl" className="py-14">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-5">
@@ -20,9 +20,11 @@ export function Footer() {
               <Logo size="lg" />
             </a>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted">
-              {agency.tagline} Based in {agency.location}.
+              {agency.taglineBefore}
+              <span className="font-medium text-ink">{agency.taglineHighlight}</span>
+              {agency.taglineAfter} {agency.location}.
             </p>
-            <p className="mt-2 text-xs text-muted/80">{agency.legalName}</p>
+            <p className="mt-2 text-xs text-muted/70">{agency.legalName}</p>
           </div>
 
           <nav className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:col-span-4">
@@ -41,7 +43,7 @@ export function Footer() {
             <p className="text-sm font-medium text-ink">Get in touch</p>
             <a
               href={`mailto:${agency.email}`}
-              className="mt-2 block text-sm text-teal hover:underline"
+              className="mt-2 block text-sm text-accent hover:underline"
             >
               {agency.email}
             </a>
@@ -54,9 +56,9 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-3 border-t border-border pt-8 text-xs text-muted md:flex-row md:items-center md:justify-between">
+        <div className="mt-12 flex flex-col gap-3 border-t border-stone-200/80 pt-8 text-xs text-muted md:flex-row md:items-center md:justify-between">
           <p>
-            © {new Date().getFullYear()} {agency.name}. All rights reserved.
+            © {new Date().getFullYear()} {agency.name}. Google Ads for D2C only.
           </p>
           <div className="flex gap-6">
             <a href="#" className="hover:text-ink">

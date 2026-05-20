@@ -1,17 +1,23 @@
 @import "tailwindcss";
 
 @theme {
-  --font-display: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-heading: "Sora", system-ui, sans-serif;
+  --font-display: "Sora", system-ui, sans-serif;
   --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  --color-cream: #f8f7f4;
-  --color-ink: #1c1917;
-  --color-muted: #57534e;
-  --color-saffron: #c2410c;
-  --color-saffron-dark: #9a3412;
-  --color-teal: #0f4c5c;
-  --color-teal-light: #1a6b7d;
+  --color-base: #faf7f2;
+  --color-elevated: #fffef9;
   --color-surface: #ffffff;
-  --color-border: #e7e5e4;
+  --color-cream: #1c1917;
+  --color-ink: #1c1917;
+  --color-muted: #6b6560;
+  --color-accent: #0f766e;
+  --color-accent-dark: #0d655c;
+  --color-highlight: #0f766e;
+  --color-border: rgba(28, 25, 20, 0.1);
+  --color-teal: #0f766e;
+  --color-teal-light: #14b8a6;
+  --color-saffron: #0f766e;
+  --color-saffron-dark: #0d655c;
 }
 
 @layer base {
@@ -20,28 +26,37 @@
   }
 
   body {
-    @apply bg-cream font-sans text-base leading-relaxed text-ink antialiased;
+    @apply bg-base font-sans text-base leading-relaxed text-ink antialiased;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 
   h1,
   h2,
   h3,
-  h4 {
-    font-family: var(--font-display);
+  h4,
+  .hero-title {
+    font-family: var(--font-heading);
     font-weight: 600;
-    letter-spacing: -0.02em;
-    line-height: 1.15;
+    letter-spacing: -0.03em;
+    line-height: 1.12;
+    color: var(--color-ink);
   }
 
-  p {
-    @apply leading-relaxed;
+  button,
+  input,
+  select,
+  textarea {
+    font-family: var(--font-sans);
   }
 }
 
 @layer utilities {
+  .font-heading {
+    font-family: var(--font-heading);
+  }
+
   .logo-wordmark {
-    font-family: var(--font-display);
+    font-family: var(--font-heading);
     letter-spacing: -0.04em;
   }
 
@@ -52,11 +67,28 @@
   }
 
   .card {
-    @apply rounded-2xl border border-border bg-surface shadow-sm;
+    @apply rounded-2xl border border-stone-200/80 bg-surface shadow-sm shadow-stone-200/40;
   }
 
   .card-elevated {
-    @apply rounded-3xl border border-border bg-surface shadow-lg shadow-stone-900/5;
+    @apply rounded-3xl border border-stone-200/80 bg-surface shadow-lg shadow-stone-300/30;
+  }
+
+  .gradient-hero {
+    background:
+      radial-gradient(ellipse 90% 70% at 50% -20%, rgb(15 118 110 / 0.08), transparent),
+      radial-gradient(ellipse 60% 50% at 100% 0%, rgb(15 118 110 / 0.05), transparent),
+      var(--color-base);
+  }
+
+  .gradient-guarantee {
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 100%, rgb(15 118 110 / 0.06), transparent),
+      linear-gradient(180deg, var(--color-elevated) 0%, var(--color-base) 100%);
+  }
+
+  .text-gradient-accent {
+    @apply bg-gradient-to-r from-accent to-teal-light bg-clip-text text-transparent;
   }
 }
 

@@ -3,15 +3,17 @@ import { Hero } from "./components/Hero";
 import { QualifyForm } from "./components/QualifyForm";
 import { Stats } from "./components/Stats";
 import { CaseStudies } from "./components/CaseStudies";
-import { Mechanism } from "./components/Mechanism";
-import { Filter } from "./components/Filter";
+import { Problem } from "./components/Problem";
+import { Positioning } from "./components/Positioning";
+import { Services } from "./components/Services";
+import { Process } from "./components/Process";
+import { Guarantee } from "./components/Guarantee";
+import { IdealClient } from "./components/IdealClient";
 import { FAQ } from "./components/FAQ";
-import { News } from "./components/News";
 import { CTA } from "./components/CTA";
 import { Footer } from "./components/Footer";
-import { TrustBar, TrustSection } from "./components/TrustSignals";
-import { Testimonials } from "./components/Testimonials";
-import { Process } from "./components/Process";
+import { TrustBar } from "./components/TrustSignals";
+import { CtaStrip } from "./components/layout/CtaStrip";
 
 export default function App() {
   return (
@@ -20,16 +22,17 @@ export default function App() {
       <main>
         <Hero />
         <TrustBar />
-        <QualifyForm />
-        <Stats />
-        <Testimonials />
-        <CaseStudies />
-        <TrustSection />
-        <Mechanism />
+        <Positioning />
+        <Services />
+        <Problem />
         <Process />
-        <Filter />
+        <CtaStrip />
+        <Guarantee />
+        <IdealClient />
+        <Stats />
+        <CaseStudies />
+        <QualifyForm />
         <FAQ />
-        <News />
         <CTA />
       </main>
       <Footer />

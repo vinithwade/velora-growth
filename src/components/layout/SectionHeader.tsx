@@ -5,7 +5,7 @@ export function SectionHeader({
   title,
   description,
   align = "left",
-  dark = false,
+  dark = true,
   className,
 }: {
   eyebrow: string;
@@ -26,15 +26,15 @@ export function SectionHeader({
       <p
         className={cn(
           "text-xs font-semibold uppercase tracking-[0.28em]",
-          dark ? "text-saffron" : "text-teal",
+          dark ? "text-highlight" : "text-teal",
         )}
       >
         {eyebrow}
       </p>
       <h2
         className={cn(
-          "mt-3 text-3xl font-semibold md:text-4xl lg:text-[2.75rem] lg:leading-[1.12]",
-          dark && "text-cream",
+          "font-heading mt-3 text-3xl font-semibold md:text-4xl lg:text-[2.75rem] lg:leading-[1.12]",
+          dark && "text-ink",
         )}
       >
         {title}
@@ -43,7 +43,7 @@ export function SectionHeader({
         <p
           className={cn(
             "mt-4 text-base md:text-lg",
-            dark ? "text-cream/75" : "text-muted",
+            dark ? "text-muted" : "text-muted",
           )}
         >
           {description}

@@ -43,3 +43,18 @@ npm run dev
 npm run build
 npm run preview
 ```
+
+## Deploy on Vercel (form submissions)
+
+Your local `.env` file is **not** uploaded to Vercel. Without this step, the apply form will show a “not connected to Google Sheets” error.
+
+1. Copy the value of `VITE_GOOGLE_SHEETS_URL` from your local `.env` (the Google Apps Script **Web app** URL ending in `/exec`).
+2. In [Vercel](https://vercel.com) → your project → **Settings** → **Environment Variables**.
+3. Add:
+   - **Name:** `VITE_GOOGLE_SHEETS_URL`
+   - **Value:** `https://script.google.com/macros/s/...../exec`
+   - **Environments:** Production (and Preview if you test preview URLs)
+4. **Redeploy** the project (Deployments → ⋯ on latest → Redeploy).  
+   Vite bakes env vars in at **build time**, so a redeploy is required after adding or changing the variable.
+
+Confirm Apps Script is deployed with **Who has access: Anyone** (see `google-apps-script/README.md`).
