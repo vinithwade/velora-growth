@@ -5,15 +5,15 @@ import { Logo } from "./Logo";
 const links = [
   { label: "Free audit", href: "#audit" },
   { label: "Services", href: "#services" },
-  { label: "90-day system", href: "#process" },
+  { label: "First 90 days", href: "#process" },
   { label: "Guarantee", href: "#guarantee" },
   { label: "Contact", href: `mailto:${agency.email}` },
 ];
 
 export function Footer() {
   return (
-    <footer className="border-t border-stone-200/80 bg-elevated">
-      <Container size="xl" className="py-14">
+    <footer className="border-t border-border bg-elevated">
+      <Container size="full" className="py-14">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-5">
             <a href="#" className="inline-block">
@@ -56,7 +56,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-3 border-t border-stone-200/80 pt-8 text-xs text-muted md:flex-row md:items-center md:justify-between">
+        <div className="mt-12 flex flex-col gap-3 border-t border-border pt-8 text-xs text-muted md:flex-row md:items-center md:justify-between">
           <p>
             © {new Date().getFullYear()} {agency.name}. Google Ads for D2C only.
           </p>
