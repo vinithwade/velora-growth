@@ -1,40 +1,50 @@
-import { processSteps } from "../data/content";
+import { processPhases } from "../data/content";
 import { Container } from "./layout/Container";
 import { Section } from "./layout/Section";
 import { SectionHeader } from "./layout/SectionHeader";
 
 export function Process() {
   return (
-    <Section variant="surface" className="py-16 md:py-20">
+    <Section id="process">
       <Container size="xl">
         <SectionHeader
           align="center"
-          eyebrow="What happens next"
-          title="No black box. You always know the next step."
-          description="We designed the process to be honest before it's salesy."
+          eyebrow="The Velora Growth system"
+          title="Our 90-Day Google Ads ROI System"
+          description="A structured sprint toward doubling marketing ROI — not random campaign tweaks."
           className="mx-auto"
         />
-        <ol className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {processSteps.map((step, i) => (
-            <li key={step.step} className="relative">
-              {i < processSteps.length - 1 && (
+        <div className="mt-14 grid gap-6 lg:grid-cols-4">
+          {processPhases.map((phase, i) => (
+            <article
+              key={phase.days}
+              className="card relative flex flex-col p-6 lg:p-8"
+            >
+              {i < processPhases.length - 1 && (
                 <span
-                  className="absolute top-8 left-[calc(50%+2rem)] hidden h-px w-[calc(100%-4rem)] bg-border lg:block"
+                  className="absolute top-12 -right-3 hidden h-px w-6 bg-stone-300 lg:block"
                   aria-hidden
                 />
               )}
-              <article className="card h-full p-6 text-center lg:text-left">
-                <span className="font-stat text-sm font-bold text-teal">
-                  {step.step}
-                </span>
-                <h3 className="mt-3 font-semibold">{step.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted">
-                  {step.body}
-                </p>
-              </article>
-            </li>
+              <p className="text-xs font-bold uppercase tracking-widest text-accent">
+                {phase.days}
+              </p>
+              <h3 className="mt-3 text-lg font-semibold text-ink">
+                {phase.title}
+              </h3>
+              <ul className="mt-4 flex-1 space-y-2">
+                {phase.tasks.map((t) => (
+                  <li
+                    key={t}
+                    className="flex gap-2 text-sm text-muted before:shrink-0 before:text-accent before:content-['•']"
+                  >
+                    {t}
+                  </li>
+                ))}
+              </ul>
+            </article>
           ))}
-        </ol>
+        </div>
       </Container>
     </Section>
   );

@@ -14,12 +14,13 @@ export function CaseStudies() {
   const next = () => setIndex((i) => (i === total - 1 ? 0 : i + 1));
 
   return (
-    <Section id="case-studies">
+    <Section id="results">
       <Container size="xl">
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <SectionHeader
-            eyebrow="Featured case studies"
-            title="Real clients. Real numbers."
+            eyebrow="D2C results"
+            title="Real Google Ads numbers"
+            description="Representative D2C Google Ads outcomes — metrics only, no fabricated testimonials."
             className="mb-0 max-w-xl"
           />
           <div className="flex items-center gap-4 md:pb-1">
@@ -30,14 +31,14 @@ export function CaseStudies() {
               <button
                 type="button"
                 onClick={prev}
-                className="rounded-full border border-border bg-surface px-4 py-2 text-sm font-medium transition hover:border-stone-400"
+                className="rounded-full border border-stone-200 px-4 py-2 text-sm font-medium text-ink transition hover:bg-stone-50"
               >
                 Previous
               </button>
               <button
                 type="button"
                 onClick={next}
-                className="rounded-full bg-ink px-4 py-2 text-sm font-medium text-cream transition hover:bg-stone-800"
+                className="rounded-full bg-accent px-4 py-2 text-sm font-medium text-white transition hover:bg-accent-dark"
               >
                 Next
               </button>
@@ -47,26 +48,28 @@ export function CaseStudies() {
 
         <article className="card-elevated mt-10 overflow-hidden">
           <div className="grid lg:grid-cols-5">
-            <div className="flex flex-col justify-between bg-gradient-to-br from-teal to-teal-light p-8 text-white lg:col-span-2 lg:p-10">
+            <div className="flex flex-col justify-between bg-gradient-to-br from-accent/10 to-stone-50 p-8 lg:col-span-2 lg:p-10">
               <div>
-                <span className="text-xs font-semibold uppercase tracking-widest text-white/70">
+                <span className="text-xs font-semibold uppercase tracking-widest text-accent">
                   {cs.category}
                 </span>
-                <p className="font-stat mt-8 text-5xl font-bold lg:text-6xl">
+                <p className="font-stat mt-8 text-5xl font-bold text-ink lg:text-6xl">
                   {cs.metric}
                 </p>
-                <p className="mt-1 text-sm text-white/75">{cs.metricLabel}</p>
+                <p className="text-sm text-muted">{cs.metricLabel}</p>
               </div>
-              <p className="mt-10 text-xl font-semibold">{cs.client}</p>
+              <p className="mt-10 text-xl font-semibold text-ink">
+                {cs.client}
+              </p>
             </div>
 
             <div className="flex flex-col justify-between p-8 lg:col-span-3 lg:p-10">
               <div>
-                <p className="mt-1 text-muted leading-relaxed">{cs.desc}</p>
-                <div className="mt-8 flex flex-wrap gap-10 border-y border-border py-6">
+                <p className="leading-relaxed text-muted">{cs.desc}</p>
+                <div className="mt-8 flex flex-wrap gap-10 border-y border-stone-200 py-6">
                   {cs.stats.map((s) => (
                     <div key={s.label}>
-                      <p className="font-stat text-2xl font-bold text-teal">
+                      <p className="font-stat text-2xl font-bold text-accent">
                         {s.value}
                       </p>
                       <p className="mt-1 text-xs font-medium uppercase tracking-wide text-muted">
@@ -75,25 +78,17 @@ export function CaseStudies() {
                     </div>
                   ))}
                 </div>
-                <div className="mt-6 flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2">
                   {cs.tags.map((t) => (
                     <span
                       key={t}
-                      className="rounded-full bg-cream px-3 py-1 text-xs font-medium text-muted"
+                      className="rounded-full border border-stone-200 bg-stone-50 px-3 py-1 text-xs font-medium text-muted"
                     >
                       {t}
                     </span>
                   ))}
                 </div>
               </div>
-              <blockquote className="mt-8 border-l-4 border-teal/30 pl-5">
-                <p className="text-base leading-relaxed text-ink/90">
-                  &ldquo;{cs.quote}&rdquo;
-                </p>
-                <footer className="mt-3 text-sm text-muted">
-                  — {cs.author}, {cs.role}
-                </footer>
-              </blockquote>
             </div>
           </div>
         </article>
@@ -107,7 +102,7 @@ export function CaseStudies() {
               aria-label={`Go to case study ${i + 1}`}
               className={cn(
                 "h-2 rounded-full transition-all",
-                i === index ? "w-10 bg-teal" : "w-2 bg-border hover:bg-stone-300",
+                i === index ? "w-10 bg-accent" : "w-2 bg-stone-300",
               )}
             />
           ))}

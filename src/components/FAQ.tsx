@@ -16,12 +16,12 @@ export function FAQ() {
             <SectionHeader
               eyebrow="FAQs"
               title="Questions worth asking"
-              description="Don't see yours? Bring it to the strategy call."
+              description="Straight answers about scope, guarantee, and how we work."
             />
           </div>
 
           <div className="lg:col-span-8">
-            <div className="card-elevated divide-y divide-border overflow-hidden">
+            <div className="card-elevated divide-y divide-stone-200 overflow-hidden">
               {faqs.map((faq, i) => (
                 <div key={faq.q}>
                   <button
@@ -30,18 +30,21 @@ export function FAQ() {
                     onClick={() => setOpen(open === i ? null : i)}
                     aria-expanded={open === i}
                   >
-                    <span className="pr-2 font-medium leading-snug">{faq.q}</span>
+                    <span className="pr-2 font-medium leading-snug text-ink">
+                      {faq.q}
+                    </span>
                     <span
                       className={cn(
-                        "flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-border text-lg text-muted transition",
-                        open === i && "rotate-45 border-teal/30 bg-teal/5 text-teal",
+                        "flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-stone-200 text-lg text-muted transition",
+                        open === i &&
+                          "rotate-45 border-accent/30 bg-accent/10 text-accent",
                       )}
                     >
                       +
                     </span>
                   </button>
                   {open === i && (
-                    <p className="border-t border-border/80 px-6 pb-6 text-sm leading-relaxed text-teal md:px-8">
+                    <p className="border-t border-stone-100 px-6 pb-6 text-sm leading-relaxed text-accent md:px-8">
                       {faq.a}
                     </p>
                   )}

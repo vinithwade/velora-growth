@@ -63,17 +63,17 @@ Each submission adds one row with:
 | Column | Content |
 |--------|---------|
 | Submitted At | Date & time |
-| Name, Email, Company, Website | Contact & business info |
-| Industry, Monthly Revenue | Qualification answers |
-| Help With | Services selected |
-| Ad Spend, Timeline | Budget & urgency |
-| Phone / WhatsApp, Notes | Contact & free text |
+| Name, Email, Brand, Store URL | Contact & store info |
+| Platform, Category, Monthly Revenue | D2C qualification |
+| Google Ads Status, Help With | Ads maturity & needs |
+| Monthly Ad Spend, Timeline | Budget & urgency |
+| Phone / WhatsApp, Notes | Contact & audit notes |
 
 You can sort, filter, and share this sheet with your team like any spreadsheet.
 
 ## Test it
 
-1. Open your site → **Apply** form → fill all 9 steps → **Submit application**.
+1. Open your site → **Book My Free Growth Audit** form → complete all steps → submit.
 2. Refresh the **Leads** sheet — a new row should appear within a few seconds.
 
 If nothing appears, check **Apps Script → Executions** for errors and confirm deployment access is **Anyone**.

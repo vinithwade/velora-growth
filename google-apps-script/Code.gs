@@ -1,9 +1,6 @@
 /**
- * Velora — Save form leads to the "Leads" sheet
- *
- * DEPLOY (required after any edit):
- * Deploy → Manage deployments → Edit → Version: New version → Deploy
- * Settings: Execute as "Me", Who has access: "Anyone"
+ * Velora Growth — D2C Google Ads audit leads → Leads sheet
+ * Deploy: Execute as Me, Who has access: Anyone
  */
 
 const SHEET_NAME = "Leads";
@@ -11,16 +8,17 @@ const SHEET_NAME = "Leads";
 function doGet(e) {
   var p = e.parameter;
 
-  // Save lead when email is present (flat query params from the website)
   if (p && p.email) {
     try {
       return saveLead_({
         name: p.name || "",
         email: p.email,
-        company: p.company || "",
-        website: p.website || "",
-        industry: p.industry || "",
-        revenue: p.revenue || "",
+        brand: p.brand || "",
+        storeUrl: p.storeUrl || "",
+        platform: p.platform || "",
+        category: p.category || "",
+        monthlyRevenue: p.monthlyRevenue || "",
+        googleAdsStatus: p.googleAdsStatus || "",
         helpWith: p.helpWith ? String(p.helpWith).split("||") : [],
         adSpend: p.adSpend || "",
         timeline: p.timeline || "",
@@ -32,11 +30,10 @@ function doGet(e) {
     }
   }
 
-  // Health check — open deployment URL in browser to verify
   return jsonResponse_({
     ok: true,
     sheet: SHEET_NAME,
-    hint: "Script is live. Submissions arrive via the website form.",
+    hint: "Script is live. Audit submissions arrive via the website form.",
   });
 }
 
@@ -51,10 +48,12 @@ function saveLead_(data) {
       new Date(),
       data.name || "",
       data.email || "",
-      data.company || "",
-      data.website || "",
-      data.industry || "",
-      data.revenue || "",
+      data.brand || "",
+      data.storeUrl || "",
+      data.platform || "",
+      data.category || "",
+      data.monthlyRevenue || "",
+      data.googleAdsStatus || "",
       Array.isArray(data.helpWith)
         ? data.helpWith.join(", ")
         : data.helpWith || "",
@@ -72,7 +71,6 @@ function saveLead_(data) {
   }
 }
 
-/** Run once: creates Leads tab + column headers */
 function setupSheet() {
   getOrCreateLeadsSheet_();
 }
@@ -96,12 +94,14 @@ function setupHeaders_(sheet) {
     "Submitted At",
     "Name",
     "Email",
-    "Company",
-    "Website",
-    "Industry",
+    "Brand",
+    "Store URL",
+    "Platform",
+    "Category",
     "Monthly Revenue",
+    "Google Ads Status",
     "Help With",
-    "Ad Spend",
+    "Monthly Ad Spend",
     "Timeline",
     "Phone / WhatsApp",
     "Notes",
