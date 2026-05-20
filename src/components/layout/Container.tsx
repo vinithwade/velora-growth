@@ -6,11 +6,12 @@ const widths = {
   md: "max-w-4xl",
   lg: "max-w-6xl",
   xl: "max-w-7xl",
+  full: "max-w-[1440px]",
 } as const;
 
 export function Container({
   children,
-  size = "lg",
+  size = "full",
   className,
 }: {
   children: ReactNode;
@@ -20,7 +21,7 @@ export function Container({
   return (
     <div
       className={cn(
-        "mx-auto w-full px-5 md:px-8",
+        "mx-auto w-full px-5 md:px-8 lg:px-10",
         widths[size],
         className,
       )}

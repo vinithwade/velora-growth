@@ -143,7 +143,7 @@ export function QualifyForm() {
 
   return (
     <Section id="audit" variant="elevated" className="py-16 md:py-24">
-      <Container size="xl">
+      <Container size="full">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-start lg:gap-16">
           <div className="lg:sticky lg:top-32">
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-accent">
@@ -284,7 +284,7 @@ export function QualifyForm() {
                   type="tel"
                   value={data.phone}
                   onChange={(v) => update("phone", v)}
-                  placeholder="+91 98765 43210"
+                  placeholder="+91 63014 38132"
                 />
               )}
               {step === 10 && (

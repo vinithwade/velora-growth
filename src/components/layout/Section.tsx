@@ -3,10 +3,9 @@ import { cn } from "../../lib/cn";
 
 const variants = {
   default: "bg-base",
-  elevated: "border-y border-stone-200/60 bg-elevated",
-  muted: "bg-stone-100/50",
+  elevated: "border-y border-border bg-elevated",
+  muted: "bg-[#f3f1eb]",
   glow: "gradient-guarantee",
-  dark: "bg-stone-100 text-ink",
 } as const;
 
 export function Section({
@@ -24,7 +23,7 @@ export function Section({
     <section
       id={id}
       className={cn(
-        "scroll-mt-28 py-16 md:py-24 lg:py-28",
+        "section-fade scroll-mt-24 py-12 md:py-[72px] lg:py-24 lg:scroll-mt-28",
         variants[variant],
         className,
       )}

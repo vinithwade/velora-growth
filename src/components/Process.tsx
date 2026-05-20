@@ -1,47 +1,60 @@
-import { processPhases } from "../data/content";
+import { processPhases, processSection } from "../data/content";
 import { Container } from "./layout/Container";
 import { Section } from "./layout/Section";
 import { SectionHeader } from "./layout/SectionHeader";
 
 export function Process() {
   return (
-    <Section id="process">
-      <Container size="xl">
+    <Section id="process" variant="muted">
+      <Container size="full">
         <SectionHeader
           align="center"
-          eyebrow="The Velora Growth system"
-          title="Our 90-Day Google Ads ROI System"
-          description="A structured sprint toward doubling marketing ROI — not random campaign tweaks."
-          className="mx-auto"
+          eyebrow={processSection.eyebrow}
+          title={processSection.title}
+          description={processSection.subtitle}
+          className="mx-auto max-w-3xl"
         />
-        <div className="mt-14 grid gap-6 lg:grid-cols-4">
+
+        <div className="mt-14 space-y-6">
           {processPhases.map((phase, i) => (
             <article
-              key={phase.days}
-              className="card relative flex flex-col p-6 lg:p-8"
+              key={phase.phase}
+              className="card card-hover grid gap-6 p-6 md:grid-cols-12 md:p-8 lg:p-10"
             >
-              {i < processPhases.length - 1 && (
-                <span
-                  className="absolute top-12 -right-3 hidden h-px w-6 bg-stone-300 lg:block"
-                  aria-hidden
-                />
-              )}
-              <p className="text-xs font-bold uppercase tracking-widest text-accent">
-                {phase.days}
-              </p>
-              <h3 className="mt-3 text-lg font-semibold text-ink">
-                {phase.title}
-              </h3>
-              <ul className="mt-4 flex-1 space-y-2">
-                {phase.tasks.map((t) => (
-                  <li
-                    key={t}
-                    className="flex gap-2 text-sm text-muted before:shrink-0 before:text-accent before:content-['•']"
-                  >
-                    {t}
-                  </li>
-                ))}
-              </ul>
+              <div className="md:col-span-4 lg:col-span-3">
+                <p className="text-xs font-bold uppercase tracking-widest text-accent">
+                  {phase.phase}
+                </p>
+                <p className="mt-1 font-stat text-sm font-semibold text-muted">
+                  {phase.days}
+                </p>
+                <h3 className="font-heading mt-4 text-xl font-bold leading-snug text-ink md:text-2xl">
+                  {phase.title}
+                </h3>
+                <span className="mt-4 hidden font-stat text-4xl font-bold text-border/80 md:block">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+              </div>
+
+              <div className="md:col-span-8 lg:col-span-9">
+                <p className="text-base leading-[1.6] text-muted md:text-[17px]">
+                  {phase.intro}
+                </p>
+                <p className="mt-5 text-sm font-semibold text-ink">
+                  You&apos;ll know:
+                </p>
+                <ul className="mt-3 space-y-2.5">
+                  {phase.outcomes.map((item) => (
+                    <li
+                      key={item}
+                      className="flex gap-3 text-sm leading-relaxed text-muted"
+                    >
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </article>
           ))}
         </div>
